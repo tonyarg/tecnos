@@ -1,0 +1,41 @@
+{% extends "AcmeDemoTwoBundle:Repuestos:index.html.twig" %}
+
+{% block title_right_content %}
+Modificar repuesto
+{% endblock title_right_content %}
+{% block content_right_content %}
+	{{ form_start(form) }}
+    	{{ form_errors(form) }}
+    <div>
+        {{ form_label(form.codigo) }}
+        {{ form_widget(form.codigo) }}
+    </div>
+
+    <div>
+        {{ form_label(form.nombre) }}
+        {{ form_widget(form.nombre) }}
+    </div>
+
+    <div>
+        {{ form_label(form.precioCompra) }}
+        {{ form_widget(form.precioCompra) }}
+    </div>
+
+    <div>
+        {{ form_label(form.porcentajeGanancia) }}
+        {{ form_widget(form.porcentajeGanancia) }}
+    </div>
+    <div>
+        {{ form_label(form.cantidad) }}
+        {{ form_widget(form.cantidad) }}
+    </div>
+    <div>
+        {{ form_label(form.categoria) }}
+        {{ form_widget(form.categoria) }}
+    </div>
+
+	{{ form_end(form) }}
+{% endblock content_right_content %}
+
+{% block inicio_active %} {% endblock inicio_active %}
+{% block lista_repuestos_active %} active {% endblock lista_repuestos_active %}

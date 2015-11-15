@@ -1,0 +1,45 @@
+{% extends "AcmeDemoTwoBundle::index.html.twig" %}
+
+{% block userInformation %}
+  <div class="alert alert-info" style="text-align:right;" role="alert">
+    <strong>{{ app.user.username }}</strong> 
+      {% if is_granted('ROLE_GERENTE') %}
+        <a href="{{ path('tecnos_transacciones') }}"> Historial </a>
+      {% endif %} 
+    <a href="{{ path('tecnos_home') }}">Inicio</a>  
+    <a href="{{ path('logout') }}">Salir</a>
+  </div>  
+{% endblock %}
+
+{% block content %}
+  <div class="container" style="text-align:center;">
+    <form id="searchByName-form" method="post" action="{{ path('tecnos_repuestos_buscar') }}">
+      <div class="input-group">
+      <input name="repuestoNombre" type="text" class="form-control" placeholder="Buscar repuesto..." required />
+      <span class="input-group-btn">
+        <button id="search-button" class="btn btn-default" type="button">Buscar</button>
+      </span>
+    </form>
+    </div><!-- /input-group --></br>
+    <div class="row">
+    	<div class="col-xs-6 col-md-6">
+	  		<div class="alert alert-warning">
+	  			<h2><a href="{{ path('tecnos_repuestos_lista') }}">Repuestos</a></h2>
+	  		</div>
+    	</div>
+    	<div class="col-xs-6 col-md-6">
+	  		<div class="alert alert-success">
+	  			<h2><a href="{{ path('tecnos_ventas') }}">Ventas</a></h2>
+	  		</div>
+    	</div>
+	  </div>
+  </div>
+{% endblock content %}
+{% block jqueryScript %}
+  <script>
+  $(" #search-button ").click(
+    function(){
+      $(" #searchByName-form ").submit();
+    });
+  </script>
+{% endblock %}

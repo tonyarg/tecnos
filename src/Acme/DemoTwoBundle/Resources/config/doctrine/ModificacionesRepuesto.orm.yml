@@ -1,0 +1,60 @@
+Acme\DemoTwoBundle\Entity\ModificacionesRepuesto:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idTransaccion:
+            type: integer
+            column: id_transaccion
+        codigoAntiguo:
+            type: string
+            length: '100'
+            column: codigo_antiguo
+        codigoNuevo:
+            type: string
+            length: '100'
+            column: codigo_nuevo
+        nombreAntiguo:
+            type: string
+            length: 255
+            column: nombre_antiguo
+        nombreNuevo:
+            type: string
+            length: 255
+            column: nombre_nuevo
+        precioCompraAntiguo:
+            type: float
+            column: precio_compra_antiguo
+        precioCompraNuevo:
+            type: float
+            column: precio_compra_nuevo
+        precioVentaAntiguo:
+            type: float
+            column: precio_venta_antiguo
+        precioVentaNuevo:
+            type: float
+            column: precio_venta_nuevo
+        porcentajeGananciaAntiguo:
+            type: integer
+            column: porcentaje_ganancia_antiguo
+        porcentajeGananciaNuevo:
+            type: integer
+            column: porcentaje_ganancia_nuevo
+        cantidadAntiguo:
+            type: integer
+            column: cantidad_antiguo
+        cantidadNuevo:
+            type: integer
+            column: cantidad_nuevo
+        categoriaAntiguo:
+            type: integer
+            column: categoria_antiguo
+        categoriaNuevo:
+            type: integer
+            column: categoria_nuevo
+    lifecycleCallbacks: {  }

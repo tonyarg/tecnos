@@ -1,0 +1,38 @@
+{% extends "AcmeDemoTwoBundle:Repuestos:index.html.twig" %}
+
+{% block title_right_content %}
+Lista de repuestos
+{% endblock title_right_content %}
+{% block content_right_content %}
+  {% if removeSuccess is defined %}
+    <div class="alert alert-success" role="alert">
+      Repuesto eliminado con exito.
+    </div>
+    {{ success }}
+  {% endif %}
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Codigo</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+      	{% for repuesto in repuestos %}
+        <tr>
+          <th scope="row">{{ loop.index }}</th>
+          <td>{{ repuesto.codigo }}</td>
+          <td>{{ repuesto.nombre }}</td>
+          <td>{{ repuesto.precioVenta }}</td>
+          <td><a href="/repuestos/modificar/{{ repuesto.id }}"><span style="padding-right:10px;" class="glyphicon glyphicon-pencil"> </span><span class="glyphicon glyphicon-usd" style="padding-right:10px;"> </span><a href="/repuestos/borrar/{{ repuesto.id }}"><span class="glyphicon glyphicon-remove" style="padding-right:5px;" ></span></a></td>
+        </tr>
+    	{% endfor %}
+      </tbody>
+    </table>
+{% endblock content_right_content %}
+
+{% block inicio_active %} {% endblock inicio_active %}
+{% block lista_repuestos_active %} active {% endblock lista_repuestos_active %}

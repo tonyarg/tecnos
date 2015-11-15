@@ -1,0 +1,128 @@
+{% extends "AcmeDemoTwoBundle:Transacciones:index.html.twig" %}
+
+{% block title_right_content %}
+Movimientos semanales realizados por el sistema
+{% endblock title_right_content %}
+{% block ultimosMovimientos_active %} {% endblock %}
+{% block movimientoSemanal_active %}
+	active
+{% endblock movimientoSemanal_active %}
+{% block content_right_content %}
+  {% if removeSuccess is defined %}
+    <div class="alert alert-success" role="alert">
+      Repuesto eliminado con exito.
+    </div>
+    {{ success }}
+  {% endif %}
+  {% if 0 == 1 %}
+    hola
+  {% endif %}
+  <div>
+    <strong>Filtrar por:</strong></br>
+      <input id="repuestoAgregadoButton" type="checkbox" value="Repuestos borrados">Repuestos agregados
+      <input id="repuestoModificadoButton" type="checkbox" value="Repuestos borrados">Repuestos modificados
+      <input id="repuestoBorradoButton" type="checkbox" value="Repuestos borrados">Repuestos borrados
+      </br>
+      <input id="clienteAgregadoButton" type="checkbox" value="Repuestos borrados">
+      Clientes agregados
+      <input id="ventaRealizadaButton" type="checkbox" value="Repuestos borrados">
+      Ventas realizadas
+  </div>
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Accion</th>
+          <th>Usuario</th>
+          <th>Ver mas</th>
+        </tr>
+      </thead>
+      <tbody>
+      	{% for transaccion in transacciones %}
+
+	        {% if transaccion.tipoTransaccion == 0 %}
+	        	<tr class="repuestoAgregado">
+	            <th scope="row">{{ transaccion.fechaTransaccion|date("d/m/Y H:i") }}</th>
+	            <td> Repuesto agregado</td>      		
+	            <td> {{transaccion.encargado}}</td>   
+              <td><a href="/transacciones/ver/{{ transaccion.tipoTransaccion }}/{{ transaccion.id }}"><span style="padding-right:10px;" class="glyphicon glyphicon-plus"> </span></a></td>    		
+	        	</tr>
+	        {% endif %} {# Agregar repuesto #}
+
+	        {% if transaccion.tipoTransaccion == 1 %}
+	        	<tr class="repuestoModificado">
+	            <th scope="row">{{ transaccion.fechaTransaccion|date("d/m/Y H:i") }}</th>
+	            <td> Repuesto modificado</td>      		
+	            <td> {{transaccion.encargado}}</td>   
+              <td><a href="/transacciones/ver/{{ transaccion.tipoTransaccion }}/{{ transaccion.id }}"><span style="padding-right:10px;" class="glyphicon glyphicon-plus"> </span></a></td>       		
+	        	</tr>
+	        {% endif %} {# Modificar repuesto #}
+
+	        {% if transaccion.tipoTransaccion == 2 %}
+	        	<tr class="repuestoBorrado">
+	            <th scope="row">{{ transaccion.fechaTransaccion|date("d/m/Y H:i") }}</th>
+	            <td> Repuesto borrado</td>      		
+	            <td> {{transaccion.encargado}}</td>   
+              <td><a href="/transacciones/ver/{{ transaccion.tipoTransaccion }}/{{ transaccion.id }}"><span style="padding-right:10px;" class="glyphicon glyphicon-plus"> </span></a></td>     		
+	        	</tr>
+	        {% endif %} {# Borrar repuesto #}
+
+	        {% if transaccion.tipoTransaccion == 3 %}
+	        	<tr class="clienteAgregado">
+	            <th scope="row">{{ transaccion.fechaTransaccion|date("d/m/Y H:i") }}</th>
+	            <td> Cliente agregado</td>      		
+	            <td> {{transaccion.encargado}}</td>   
+              <td><a href="/transacciones/ver/{{ transaccion.tipoTransaccion }}/{{ transaccion.id }}"><span style="padding-right:10px;" class="glyphicon glyphicon-plus"> </span></a></td>      		
+	        	</tr>
+	        {% endif %} {# Cliente agregado #}
+
+	        {% if transaccion.tipoTransaccion == 4 %}
+	        	<tr class="ventaRealizada">
+	            <th scope="row">{{ transaccion.fechaTransaccion|date("d/m/Y H:i") }}</th>
+	            <td> Venta realizada</td>      		
+	            <td> {{transaccion.encargado}}</td>   
+              <td><a href="/transacciones/ver/{{ transaccion.tipoTransaccion }}/{{ transaccion.id }}"><span style="padding-right:10px;" class="glyphicon glyphicon-plus"> </span></a></td>     		
+	        	</tr>
+	        {% endif %} {# Venta realizada #}
+
+    	{% endfor %}
+      </tbody>
+    </table>
+    <script>
+    $("input").click(function(){
+    	if($("#repuestoAgregadoButton").is(':checked')){
+      		$(".repuestoAgregado").show();
+    	}
+    	else{
+    		$(".repuestoAgregado").hide();
+    	}
+    	if($("#repuestoModificadoButton").is(':checked')){
+      		$(".repuestoModificado").show();
+    	}
+    	else{
+    		$(".repuestoModificado").hide();
+    	}
+    	if($("#repuestoBorradoButton").is(':checked')){
+      		$(".repuestoBorrado").show();
+    	}
+    	else{
+    		$(".repuestoBorrado").hide();
+    	}
+    	if($("#clienteAgregadoButton").is(':checked')){
+      		$(".clienteAgregado").show();
+    	}
+    	else{
+    		$(".clienteAgregado").hide();
+    	}
+    	if($("#ventaRealizadaButton").is(':checked')){
+      		$(".ventaRealizada").show();
+    	}
+    	else{
+    		$(".ventaRealizada").hide();
+    	}
+    });
+    </script>
+{% endblock content_right_content %}
+
+{% block inicio_active %} {% endblock inicio_active %}
+{% block lista_repuestos_active %} active {% endblock lista_repuestos_active %}

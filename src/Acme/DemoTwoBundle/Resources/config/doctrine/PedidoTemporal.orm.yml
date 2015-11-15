@@ -1,0 +1,17 @@
+Acme\DemoTwoBundle\Entity\PedidoTemporal:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idPedido:
+            type: integer
+        idRepuesto:
+            type: integer
+        cantidad:
+            type: integer
+    lifecycleCallbacks: {  }

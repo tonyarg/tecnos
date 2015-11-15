@@ -1,0 +1,29 @@
+Acme\DemoTwoBundle\Entity\RepuestoBorrado:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+        codigo:
+            type: string
+            length: '100'
+        precioCompra:
+            type: float
+        precioVenta:
+            type: float
+        porcentajeGanancia:
+            type: integer
+        cantidad:
+            type: integer
+        categoria:
+            type: integer
+        idTransaccion:
+            type: integer
+    lifecycleCallbacks: {  }

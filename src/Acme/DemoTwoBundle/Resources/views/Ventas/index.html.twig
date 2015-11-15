@@ -1,0 +1,76 @@
+{% extends "AcmeDemoTwoBundle:Transacciones:index.html.twig" %}
+
+{% block title_right_content %}
+Realizar venta
+{% endblock title_right_content %}
+{% block ultimosMovimientos_active %} {% endblock %}
+{% block left_content %}
+  <li class="active"><a href="{{path('tecnos_ventas')}}">Realizar venta</a></li>
+{% endblock left_content %}
+{% block movimientoSemanal_active %}
+	active
+{% endblock movimientoSemanal_active %}
+{% block content_right_content %}
+{% if alert is defined %}
+  <script>
+    alert("{{ alert }}");
+  </script>
+{% endif %}
+<form id="myForm" method="post" action="{{ path('my_app_greeting') }}">
+      <div class="input-group">
+      <input id="name_id" name="name" type="text" class="form-control" placeholder="Buscar repuesto..." />
+      <span class="input-group-btn">
+        <button id="search-button" class="btn btn-default" type="button">Buscar</button>
+      </span>
+    </div><!-- /input-group --></br>
+    </form>
+ <div id="output"></div>
+	<div id="pedido-container">
+     <div id="outputTwo"></div>
+    </div>
+  <script>
+  $("#outputTwo").ready(function(){
+    $.ajax({
+        type: "POST",
+        url: "/ventas/cargar/"
+    })
+    .done(function(response){
+      // alert(JSON.stringify(response,null,4) );
+        template = response;
+        $('#outputTwo').html(template);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+        console.log(errorThrown);
+        alert('Error : ' + errorThrown);
+    });
+  });
+
+  $("#name_id").click(function(){
+    ("#outputTwo").html();
+  });
+  </script>
+<script>
+$("#myForm").submit(function(event){
+    var value = $("#name_id").val();
+    $.ajax({
+        type: "POST",
+        data: { productValue: value },
+        url: "/ventas/test/ajax/"
+    })
+    .done(function(response){
+      // alert(JSON.stringify(response,null,4) );
+        template = response;
+        $('#output').html(template); 
+    event.preventDefault();
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+        console.log(errorThrown);
+        alert('Error : ' + errorThrown);
+    });
+    event.preventDefault();
+});
+</script>
+{% endblock content_right_content %}
+
+{% block inicio_active %} {% endblock inicio_active %}
+{% block lista_repuestos_active %} active {% endblock lista_repuestos_active %}

@@ -1,0 +1,19 @@
+Acme\DemoTwoBundle\Entity\PedidoRepuestos:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idPedido:
+            type: integer
+            column: id_pedido
+        idRepuesto:
+            type: integer
+            column: id_repuesto
+        cantidad:
+            type: integer
+    lifecycleCallbacks: {  }

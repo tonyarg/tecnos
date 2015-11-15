@@ -1,0 +1,42 @@
+<html lang="es">
+<head>
+	<title>Test</title>
+	<meta charset="utf-8" />
+	<style>
+		body
+		{
+			background:black;
+		}
+		#container
+		{
+			width:990px;
+			margin:0 auto;
+			border:1px #CCC;
+		}
+		.title-entry
+		{
+			font-family: sans-serif;
+			color:white;
+			background:#e18728;
+			text-transform: uppercase;
+
+		}
+		.post-entry
+		{
+			color:white;
+			font-family: verdana;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="title-entry">
+			<h1>{{entry}}</h1>
+		</div>
+		<div class="post-entry">
+			<p>Aca va el post bla bla bla bla</p>
+		</div>
+		<h3 style="color:#CCC;"><a href="{{ path('logout')}}">Log Out</a></h3>
+	</div>
+</body>
+</html>

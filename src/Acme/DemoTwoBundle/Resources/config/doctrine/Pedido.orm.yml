@@ -1,0 +1,15 @@
+Acme\DemoTwoBundle\Entity\Pedido:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idTransaccion:
+            type: integer
+        pedidoFinalizado:
+            type: boolean
+    lifecycleCallbacks: {  }

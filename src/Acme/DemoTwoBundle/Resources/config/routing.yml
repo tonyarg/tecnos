@@ -1,0 +1,86 @@
+tecnos_index:
+    path:     /
+    defaults: { _controller: AcmeDemoTwoBundle:Home:login }
+tecnos_test:
+    path: /test/
+    defaults: { _controller: AcmeDemoTwoBundle:Default:test }
+
+tecnos_home:
+    path:     /home/
+    defaults: { _controller: AcmeDemoTwoBundle:Home:home }
+tecnos_transacciones:
+    path: /transacciones/
+    defaults: { _controller: AcmeDemoTwoBundle:Transacciones:index }
+tecnos_transacciones_semanales:
+    path: /transacciones/semanales/
+    defaults: { _controller: AcmeDemoTwoBundle:Transacciones:movimientoSemanal }
+tecnos_transacciones_ver:
+    path: /transacciones/ver/{tipoTransaccion}/{idTransaccion}
+    defaults: { _controller: AcmeDemoTwoBundle:Transacciones:ver }
+tecnos_repuestos_index:
+    path: /repuestos/
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:index }
+tecnos_repuestos_agregar:
+    path: /repuestos/agregar/
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:agregar }
+tecnos_repuestos_buscar:
+    path: /repuestos/buscar/
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:buscar }
+tecnos_repuestos_busquedaAvanzada:
+    path: /repuestos/buscar/avanzado/
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:buscarAvanzado }
+tecnos_repuestos_agregar_check:
+    path: /repuestos/agregar/check
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:agregarCheck }
+tecnos_repuestos_lista:
+    path: /repuestos/ver/{actionResponse}
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:ver, actionResponse = null }
+tecnos_repuestos_modificar:
+    path: /repuestos/modificar/{id}
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:modifyById }
+tecnos_repuestos_vender:
+    path: /repuestos/vender/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:agregarRepuesto }
+tecnos_repuestos_verById:
+    path: /repuestos/ver/{id}
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:seeById }
+tecnos_ventas_test:
+    path: /ventas/test/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:testView }
+tecnos_ventas_test_ajax:
+    path: /ventas/test/ajax/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:test }
+tecnos_ventas_cargar_pedido_temporal:
+    path: /ventas/cargar/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:cargarPedidoTemporal }
+tecnos_ventas_finalizar:
+    path: /ventas/finalizar/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:FinalizarPedido }
+tecnos_ventas_pedido_temporal:
+    path: /ventas/pedido/temporal/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:repuestoPedidoTemporal }
+tecnos_ventas_pedido_borrar:
+    path: /ventas/pedido/borrar/{idRepuesto}
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:eliminarRepuestoPedidoTemporal }
+tecnos_repuestos_borrar:
+    path: /repuestos/borrar/{id}
+    defaults: { _controller: AcmeDemoTwoBundle:Repuestos:delete }
+tecnos_ventas:
+    path: /ventas/
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:index }
+my_app_greeting:
+    path: /ventas/buscarRepuesto
+    defaults: { _controller: AcmeDemoTwoBundle:Ventas:buscarRepuesto }
+blog:
+    path:	/blog/{entry}
+    defaults: { _controller: AcmeDemoTwoBundle:Default:blog }
+login:
+    path:	/login/
+    defaults: { _controller: AcmeDemoTwoBundle:Security:login }
+login_check:
+    path:	/login_check
+admin:
+    path:	/admin/
+    defaults: { _controller: AcmeDemoTwoBundle:Admin:index }
+logout:
+    path: /logout

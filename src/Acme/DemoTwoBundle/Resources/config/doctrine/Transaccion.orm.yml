@@ -1,0 +1,20 @@
+Acme\DemoTwoBundle\Entity\Transaccion:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tipoTransaccion:
+            type: integer
+            column: tipo_transaccion
+        fechaTransaccion:
+            type: datetime
+            column: fecha_transaccion
+        encargado:
+            type: string
+            length: '100'
+    lifecycleCallbacks: {  }

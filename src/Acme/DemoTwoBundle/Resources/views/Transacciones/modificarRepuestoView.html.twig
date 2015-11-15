@@ -1,0 +1,28 @@
+{% extends "AcmeDemoTwoBundle:Transacciones:index.html.twig" %}
+
+{% block title_right_content %}
+Transaccion #{{ repuesto.idTransaccion }} - Repuesto modificado
+{% endblock title_right_content %}
+{% block left_content %}
+
+{% endblock left_content %}
+{% block right_content_size %}
+	col-xs-6 col-md-12
+{% endblock right_content_size %}
+{% block content_right_content %}
+
+		<div>
+			<p><strong>Codigo (antiguo): </strong>{{ repuesto.codigoAntiguo }}</p>
+			<p><strong>Codigo (nuevo): </strong>{{ repuesto.codigoNuevo }}</p>
+			<p><strong>Nombre (antiguo): </strong>{{ repuesto.nombreAntiguo }}</p>
+			<p><strong>Nombre (nuevo): </strong>{{ repuesto.nombreNuevo }}</p>
+			<p><strong>Precio de compra (antiguo): </strong>{{ repuesto.precioCompraAntiguo }}</p>
+			<p><strong>Precio de compra (nuevo): </strong>{{ repuesto.precioCompraNuevo }}</p>
+			<p><strong>Precio de venta (antiguo): </strong>{{ repuesto.precioVentaAntiguo }}</p>
+			<p><strong>Precio de venta (nuevo): </strong>{{ repuesto.precioVentaNuevo }}</p>
+			<p><strong>Ganancia % (antiguo): </strong>{{ repuesto.porcentajeGananciaAntiguo }}</p>
+			<p><strong>Ganancia % (nuevo): </strong>{{ repuesto.porcentajeGananciaNuevo }}</p>
+			<p><strong>Stock (antiguo): </strong>{{ repuesto.cantidadAntiguo }}</p>
+			<p><strong>Stock (nuevo): </strong>{{ repuesto.cantidadNuevo }}</p>
+		</div>
+{% endblock content_right_content %}

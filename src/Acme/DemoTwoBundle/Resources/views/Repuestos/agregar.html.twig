@@ -1,0 +1,111 @@
+{% extends "AcmeDemoTwoBundle:Repuestos:index.html.twig" %}
+
+{% block title_right_content %}
+Agregar repuestos
+{% endblock title_right_content %}
+{% block content_right_content %}
+
+	{% if success is defined %}
+		{{ success }}
+	{% endif %}
+
+	{% if form_errors(form.codigo) %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Codigo invalido
+		</div>
+	{% endif %}
+
+	{% if form_errors(form.nombre) %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Nombre invalido
+		</div>
+	{% endif %}
+
+	{% if form_errors(form.precioCompra) %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Precio compra invalido
+		</div>
+	{% endif %}
+
+	{% if form_errors(form.porcentajeGanancia) %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Porcentaje de ganancia invalido
+		</div>
+	{% endif %}
+
+	{% if form_errors(form.cantidad) %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Stock inicial invalido
+		</div>
+	{% endif %}
+
+	{% if form_errors(form.categoria) %}
+		<div class="alert alert-danger" role="alert">
+		  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		  <span class="sr-only">Error:</span>
+		  Categoria invalida
+		</div>
+	{% endif %}
+	{{ form_start(form) }}
+    	{{ form_errors(form) }}
+    <div>
+        {{ form_label(form.codigo) }}
+        {{ form_widget(form.codigo) }}
+    </div>
+
+    <div>
+        {{ form_label(form.nombre) }}
+        {{ form_widget(form.nombre) }}
+    </div>
+
+    <div>
+        {{ form_label(form.precioCompra) }}
+        {{ form_widget(form.precioCompra) }}
+    </div>
+
+    <div>
+        {{ form_label(form.porcentajeGanancia) }}
+        {{ form_widget(form.porcentajeGanancia) }}
+    </div>
+    <div>
+        {{ form_label(form.cantidad) }}
+        {{ form_widget(form.cantidad) }}
+    </div>
+    <div>
+        {{ form_label(form.categoria) }}
+        {{ form_widget(form.categoria) }}
+    </div>
+
+	{{ form_end(form) }}
+	
+	{#<form action="{{ path('tecnos_repuestos_agregar_check') }}" method="post">
+		    <label for="codigo">Codigo:</label>
+		    <input type="text" id="codigo" name="codigo" value="" /></br>
+		    <label for="nombre">Nombre:</label>
+		    <input type="text" id="nombre" name="nombre" value="" /></br>
+		    <label for="precio-compra">Precio compra:</label>
+		    <input type="text" id="precio-compra" name="precioCompra" value="" /></br>
+		    <label for="precio-venta">% ganancia:</label>
+		    <input type="text" id="precio-venta" name="porcentajeGanancia" value="" /></br>
+		    <label for="porcentaje-ganancia">Stock inicial:</label>
+		    <input type="text" id="porcentaje-ganancia" name="cantidad" value="" /></br>
+		    <label for="porcentaje-ganancia">Categoria</label>
+		    <input type="text" id="porcentaje-ganancia" name="categoria" value="" /></br>
+	
+		        <input type="hidden" name="_target_path" value="/blog/21" />
+		    <button type="submit">Agregar</button>
+		</form>#}
+{% endblock content_right_content %}
+
+{% block inicio_active %} {% endblock inicio_active %}
+{% block agregar_active %} active {% endblock agregar_active %}

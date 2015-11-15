@@ -1,0 +1,36 @@
+{% extends "AcmeDemoTwoBundle:Transacciones:index.html.twig" %}
+
+{% block content_right_content %}
+</div>
+	<form id="test" method="post" action="{{ path("tecnos_ventas_test_ajax") }}">
+      <div class="input-group">
+      <input id="name_id" name="name" type="text" class="form-control" placeholder="Buscar repuesto..." required />
+      <span class="input-group-btn">
+        <button id="search-button" class="btn btn-default" type="button">Buscar</button>
+      </span>
+    </div><!-- /input-group --></br>
+    </form>
+<script>
+$("#test").submit(function(event){
+		var value = $("#name_id").val();
+		$.ajax({
+		    type: "POST",
+		    data: { productValue: value },
+		    url: "/ventas/test/ajax/"
+		})
+		.done(function(response){
+			// alert(JSON.stringify(response,null,4) );
+		    template = response;
+		    $('#output').html(template); 
+		event.preventDefault();
+		})
+		.fail(function(jqXHR, textStatus, errorThrown){
+		    alert('Error : ' + errorThrown);
+		});
+		event.preventDefault();
+});
+</script>
+{% verbatim %}
+<div id="output"></div>
+{% endverbatim %}
+{% endblock %}

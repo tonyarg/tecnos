@@ -1,0 +1,25 @@
+{% extends "AcmeDemoTwoBundle:Transacciones:index.html.twig" %}
+
+{% block title_right_content %}
+Transaccion #{{ repuesto.idTransaccion }} - Repuesto agregado
+{% endblock title_right_content %}
+{% block left_content %}
+
+{% endblock left_content %}
+{% block right_content_size %}
+	col-xs-6 col-md-12
+{% endblock right_content_size %}
+{% block content_right_content %}
+
+		<div>
+			<p><strong>Codigo: </strong>{{ repuesto.codigo }}</p>
+			<p><strong>nombre: </strong>{{ repuesto.nombre }}</p>
+			<p><strong>Precio de compra: </strong>{{ repuesto.precioCompra }}</p>
+			<p><strong>Precio de venta: </strong>{{ repuesto.precioVenta }}</p>
+			<p><strong>Ganancia %: </strong>{{ repuesto.porcentajeGanancia }}</p>
+			<p><strong>Stock: </strong>{{ repuesto.cantidad }}</p>
+		</div>
+{% endblock content_right_content %}
+
+{% block inicio_active %} {% endblock inicio_active %}
+{% block lista_repuestos_active %} active {% endblock lista_repuestos_active %}

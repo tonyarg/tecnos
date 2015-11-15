@@ -1,0 +1,23 @@
+{% block content_right_content %}
+{% if alert is defined %}
+  <div class="alert alert-info" role="alert">
+    {{ alert }}
+  </div>
+{% endif %}
+<script>
+  $("#outputTwo").ready(function(){
+    $.ajax({
+        type: "POST",
+        url: "/ventas/cargar/"
+    })
+    .done(function(response){
+      // alert(JSON.stringify(response,null,4) );
+        template = response;
+        $('#outputTwo').html(template);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+        console.log(errorThrown);
+        alert('Error : ' + errorThrown);
+    });
+  });
+</script>
